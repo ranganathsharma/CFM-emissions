@@ -13,9 +13,12 @@ The emissions are estimated for each vehicle using the well established microsco
 
 The repository is structured as follows:
 
-Codes:     Codes for calculating and plotting the results\\
-Results:   Results for each model and condition\\
-Data:      Input data of drive cycles\\
-other files\\
+Codes:     Codes for calculating and plotting the results
+
+Results:   Results for each model and condition
+
+Data:      Input data of drive cycles
+
+other files
 
 Note: This project utilizes PHEMlight, a licensed product. Ownership of PHEMlight rests solely with its developers, and it is not distributed or modified here. No proprietary or sensitive information related to PHEMlight is disclosed in this repository. Use of PHEMlight requires a valid license obtained directly from the rights holder.
