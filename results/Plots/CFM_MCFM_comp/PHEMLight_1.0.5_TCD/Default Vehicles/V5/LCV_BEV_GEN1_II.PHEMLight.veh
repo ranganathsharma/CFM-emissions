@@ -1,0 +1,107 @@
+﻿{
+  "Type": "PHEMLight VEH File",
+  "Version": "PHEM 13.0.3.24",
+  "VehicleData": {
+    "MassType": "LV",
+    "FuelType": "BEV",
+    "CalcType": "BEV",
+    "Mass": 1700.0,
+    "Loading": 258.0,
+    "RedMassWheel": 55.1649,
+    "WheelDiameter": 0.607,
+    "Cw": 0.37,
+    "A": 3.36
+  },
+  "AuxiliariesData": {
+    "Pauxnorm": 0.018029
+  },
+  "EngineData": {
+    "ICEData": {
+      "Prated": 0.0,
+      "nrated": 0.0,
+      "Idling": 0.0
+    },
+    "EMData": {
+      "Prated": 99.0,
+      "nrated": 2865.0
+    }
+  },
+  "RollingResData": {
+    "Fr0": 0.010408075,
+    "Fr1": 8.42886E-05,
+    "Fr2": 0.0,
+    "Fr3": 0.0,
+    "Fr4": 0.0
+  },
+  "FLDData": {
+    "P_n_max_v0": 5.0,
+    "P_n_max_p0": 0.24,
+    "P_n_max_v1": 6.0,
+    "P_n_max_p1": 0.95,
+    "DragCurve": {
+      "n_norm": [
+        -1.0,
+        -0.9,
+        -0.8,
+        -0.7,
+        -0.6,
+        -0.5,
+        -0.4,
+        -0.3,
+        -0.2,
+        -0.1,
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "pe_drag_norm": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "TransmissionData": {
+    "AxelRatio": 1.0,
+    "Transm": {
+      "Speed": [
+        0.0,
+        250.0
+      ],
+      "GearRatio": [
+        9.7,
+        9.7
+      ],
+      "RotMassF": [
+        1.0300432672220738,
+        1.0300432672220738
+      ]
+    }
+  }
+}
