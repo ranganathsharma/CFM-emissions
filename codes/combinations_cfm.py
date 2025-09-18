@@ -37,6 +37,26 @@ class simulations():
                  dt: float = 0.1,
                  spacing: bool = True,
                  delay: bool = False) -> None:
+        """
+        Method to initialize the simulation
+
+        Parameters
+        ----------
+        velocity_class : str
+            name of the leader velocity profile
+        model_name : str
+            name of the model
+        params : dict
+            dictionary of all the parameter names and values of the traffic flow model
+        solver : str, optional
+            name of the numerical solver, by default 'euler'
+        dt : float, optional
+            time step, by default 0.1
+        spacing : bool, optional
+            Toggle to decide if spacing is decided by the user, by default True
+        delay : bool, optional
+            Toggle to decide if the model is a delayed differential equation, by default False
+        """
         self.model = model_name
         with open(yaml_file_path, 'r') as file:
             self.model_order = yaml.safe_load(file)['Model_order']
@@ -63,10 +83,22 @@ class simulations():
         self.setup_arrays()
 
     def unpack_params(self) -> None:
+        """
+        Method to set the parameters of the model as the attributes of the simulation class
+        """
         for key in self.params_dict.keys():
             setattr(self, key, self.params_dict[key])
 
     def initialise_velocity(self) -> None:
+
+        """
+        Method to access the leader velocity profile from the data folder
+
+        Raises
+        ------
+        IOError
+            Raising error if the input velocity class is not suitable
+        """
 
         if self.velocity_class == 'WLTC_rural':
             velocity = lv.wltc(self.drive_cycles[self.velocity_class], self.dt)[1][int(588/self.dt):int(1000/self.dt)]
@@ -91,6 +123,16 @@ class simulations():
             self.velocity_leader = velocity
    
     def init_spacing(self) -> None:
+        """
+        Method to calculate the initial spacing between vehicles based on the initial velocity
+
+        Raises
+        ------
+        OverflowError
+            Error if the init_spacing_function is not working
+        IOError
+            Error if the init_spacing_function is not accessible
+        """
 
         init_vel = self.velocity_leader[0]
         init_spacing_function = getattr(self.equations, 'init_spacing_' + str(self.model), None)
@@ -104,7 +146,14 @@ class simulations():
             raise IOError('Function error: init_spacing function is not callable')
         
     def setup_arrays(self) -> None:
+        """
+        Method to initialize the arrays
 
+        Raises
+        ------
+        IOError
+            Error if the init_spacing_value cannot be calculated
+        """
         len_sim = self.velocity_leader.shape[0]
         self.tim_array = np.arange(0, self.velocity_leader.shape[0]*self.dt, self.dt)
         self.pos_array = np.zeros((self.n, len_sim))
@@ -123,7 +172,8 @@ class simulations():
 
     def evolve(self) -> tuple:
         
-        """_summary_
+        """
+        Method to numerically solve the system
 
         Returns
         -------
@@ -241,6 +291,9 @@ class variation():
             self.delay = False
 
     def main_loop(self):
+        """
+        Method to iterate over different leader velocity and vary the parameter values. 
+        """
         # ['WLTC_urban', 'WLTC_rural' , 'WLTC_highway', 'CADC_rural', 'CADC_urban', 'CADC_highway', 'FTP', 'HWFET']
         for self.velocity_class in ['Ford_focus']:
             print(f'The leader velocity is {self.velocity_class}')
@@ -251,6 +304,14 @@ class variation():
         pass
 
     def each_param(self, param_name: str) -> None:
+        """
+        Method to vary the parameter values within the known range and run the simulation
+
+        Parameters
+        ----------
+        param_name : str
+            name of the parameter
+        """
         temp_dict = self.param_dict.copy()
 
         if param_name in self.param_ranges.keys():
@@ -304,12 +365,24 @@ class variation():
                 writer.writerow(temp_vel[i])
 
     def emission_calculation(self):
+        
+        """
+        Calculating the emissions using the c# code as a subprocess saved as an executable. 
+        """
         # Run the executable
         result = subprocess.run([exe_path, self.engine_type, 'EU6ab'], capture_output=True, text=True)
         if result.returncode != 0:
             print("Execution failed with code:", result.returncode)
     
     def delete_files(self, type: str):
+        """
+        Method to create temporary files saved in either Input/Output directory
+
+        Parameters
+        ----------
+        type : str
+            the name of the directory
+        """
         for folder_path in [f'Iterative_{type}']:
 
             for filename in os.listdir(folder_path):
@@ -318,6 +391,10 @@ class variation():
                     os.remove(file_path)
 
     def post_processing(self, param_name):
+        
+        """
+        Method to save the detailed emission data in the {model}_emission_details.csv file
+        """
 
         cols = [' Speed', 'CO2', 'NOx', 'CO', 'PM', 'HC', 'FC']
         avg_names = [i + '_avg' for i in cols]
