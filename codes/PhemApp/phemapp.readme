@@ -1,0 +1,6 @@
+This project contains a C# source file named Program.cs.
+It was set up and built using the .NET Framework 4.x.
+The build process generates a project file, PhemApp.csproj, which defines the project configuration.
+This file can be opened and managed in Visual Studio or any compatible .NET IDE.
+From the project file, you can compile and run the application as needed.
+To modify functionality, edit Program.cs and rebuild using the project file.
