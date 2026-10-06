@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "n4mW57rJcc0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\BRRA\\OneDrive - Trinity College Dublin\\Academic\\PhD\\Git repositories\\CFM-emissions_new\\Demo\\PhemApp\\PhemApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BRRA\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

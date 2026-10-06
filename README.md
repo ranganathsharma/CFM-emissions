@@ -1,24 +1,50 @@
 # CFM-emissions
-Emission modelling of vehicles using Car Following Models
 
-This repository has the codes and results for the Emission modelling study for human driven and Autonomous Vehicles through Car Following and Multi-anticipative Car Following Models (CFM and MCFM). 
+Emission modelling of vehicles using Car-Following Models.
 
-The framework of the study is demonstrated on Intelligent Driver Model (IDM) and Full Velocity Difference Model (FVDM) and their respective multi-anticipative extensions found at https://www.sciencedirect.com/science/article/pii/S100757041400402X and https://www.sciencedirect.com/science/article/pii/S0378437122007543?via%3Dihub. The framework of the study is presented below
+This repository contains the code and results for an emissions modelling study
+of human-driven and autonomous vehicles using Car-Following Models (CFM) and
+Multi-anticipative Car-Following Models (MCFM).
 
-<img width="1356" height="979" alt="doe" src="https://github.com/user-attachments/assets/a7da42b6-2d59-4fb0-9e99-46a7b9914596" />
+The framework is demonstrated using the Intelligent Driver Model (IDM), the Full
+Velocity Difference Model (FVDM), and their respective multi-anticipative
+extensions:
 
-The leader vehicle dynamics dictates the movement of following vehicles in CFM class of models and can be altered to represent urban, rural and highway type of driving conditions. We have utilized standard drive cycles used across the world to represent these dynamics. Further, the study quantifies the difference in follower vehicle emission from the leader vehicle capturing the aspect of traffic flow modelling in emission estimation. 
+- IDM/MIDM: https://www.sciencedirect.com/science/article/pii/S100757041400402X
+- FVDM/MFVDM: https://www.sciencedirect.com/science/article/pii/S0378437122007543?via%3Dihub
 
-The emissions are estimated for each vehicle using the well established microscopic emission model - PHEMLight (https://sumo.dlr.de/docs/Models/Emissions/PHEMlight.html). The fuel type and the traffic flow model and the parameter values are varied to quantify the total emissions and its uncertainty under different conditions. 
+The overall study framework is shown below.
 
-The repository is structured as follows:
+![Emission design of experiment](Emission%20design%20of%20experiment.png)
 
-Codes:     Codes for calculating and plotting the results
+The leader vehicle dynamics dictate the movement of the following vehicles in
+the CFM class of models. These dynamics can be altered to represent urban,
+rural, and highway driving conditions. This study uses standard drive cycles
+from around the world to represent those leader dynamics. The study also
+quantifies how follower-vehicle emissions differ from leader-vehicle emissions,
+capturing the role of traffic-flow modelling in emissions estimation.
 
-Results:   Results for each model and condition
+Vehicle emissions are estimated using the established microscopic emissions
+model PHEMLight:
 
-Data:      Input data of drive cycles
+https://sumo.dlr.de/docs/Models/Emissions/PHEMlight.html
 
-other files
+Fuel type, traffic-flow model, and model parameter values are varied to quantify
+total emissions and their uncertainty under different driving conditions.
 
-Note: This project utilizes PHEMlight, a licensed product. Ownership of PHEMlight rests solely with its developers, and it is not distributed or modified here. No proprietary or sensitive information related to PHEMlight is disclosed in this repository. Use of PHEMlight requires a valid license obtained directly from the rights holder.
+## Repository Structure
+
+`Demo/`
+
+A step-by-step demonstration of estimating CO2, NOx, PM, and fuel consumption
+rates. The workflow is explained in `Demo/README.md`.
+
+`Manuscript_results/`
+
+Code and generated figures used for the manuscript results.
+
+`Validation/`
+
+Validation exercises used to check that the simulation and model outputs are
+reliable. These are important checks, but they are not exhaustive; additional
+validation is recommended for full simulation studies.
