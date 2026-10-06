@@ -48,3 +48,9 @@ Code and generated figures used for the manuscript results.
 Validation exercises used to check that the simulation and model outputs are
 reliable. These are important checks, but they are not exhaustive; additional
 validation is recommended for full simulation studies.
+
+This work is carried out by Ranganatha Belagumba Ramachandra, Dr. Bidisha Ghosh, Dr. Vikram
+Pakrashi and Dr. Siddartha Mounisai Middela. This repository is provided to promote 
+reproducible research in transportation. The authors acknowledge the support provided by 
+the RERITE tutorial in making this repository more 
+accessible and reader friendly (https://www.rerite.org/itsc24-rr-tutorial/). 

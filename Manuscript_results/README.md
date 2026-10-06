@@ -90,6 +90,8 @@ One master file is generated for each model. Each master file contains all param
 and leader speed profiles for that model. 
 
 Note: This step requires access to a licensed PHEMlight installation and cannot be completed without it.
+Note: The master data sets are provided in the google drive link: https://drive.google.com/drive/folders/1wbXLQRo8ghCqzylmd7u0iMHrsYw85SEM?usp=sharing. In case the folder cannot be downloaded, please contact brra@tcd.ie for 
+access. 
 
 ============================================================================================================================
 # FLEET EMISSIONS PLOTTING
